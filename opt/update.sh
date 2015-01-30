@@ -12,6 +12,12 @@ then
 	exit 1
 fi
 
+if( ! [[ -e "$tsdir" ]] )
+then
+	echo "tsdir does not exist!"
+	exit 1
+fi
+
 source ./config
 tsScriptVar="../var"
 tsScriptDir=${0%/*}
@@ -26,7 +32,7 @@ else
 	exit 0
 fi
 
-$($stopCMD)
+$stopCMD
 lastVer=$(cat "$tsScriptVar"/version)
 tar -xf "$tsScriptVar"/"$lastVer" --strip-components=1 -C "$tsdir"
-$($startCMD)
+$startCMD
