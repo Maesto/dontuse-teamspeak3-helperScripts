@@ -12,16 +12,17 @@ then
 	exit 1
 fi
 
-if( ! [[ -e "$tsdir" ]] )
-then
-	echo "tsdir does not exist!"
-	exit 1
-fi
 
 source ./config
 tsScriptVar="../var"
 tsScriptDir=${0%/*}
 cd "$tsScriptDir"
+
+if( ! [[ -e "$tsdir" ]] )
+then
+	echo "tsdir does not exist!"
+	exit 1
+fi
 
 ./getCurrentTarball.sh
 
