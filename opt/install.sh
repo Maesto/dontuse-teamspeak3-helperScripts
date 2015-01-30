@@ -7,7 +7,7 @@ tsScriptVar="../var"
 
 if(! [[ -f "./config" ]] )
 then
-	echo "you need to configure this thin first!"
+	echo "you need to configure this thing first!"
 	exit 1
 fi
 
