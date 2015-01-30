@@ -20,6 +20,8 @@ else
 fi
 
 $($stopCMD)
+echo $stopCMD
 lastVer=$(cat "$tsScriptVar"/version)
+echo "$tsScriptVar"/"$lastVer"
 tar -xf "$tsScriptVar"/"$lastVer" --strip-components=1 -C "$tsdir"
 $($startCMD)
