@@ -6,6 +6,13 @@ if [ "$(id -u)" == "0" ]; then
    exit 2
 fi
 
+if(! [[ -f "./config" ]] )
+then
+	echo "you need to configure this thing first!"
+	exit 1
+fi
+
+source ./config
 tsScriptVar="../var"
 tsScriptDir=${0%/*}
 cd "$tsScriptDir"
@@ -20,8 +27,6 @@ else
 fi
 
 $($stopCMD)
-echo $stopCMD
 lastVer=$(cat "$tsScriptVar"/version)
-echo "$tsScriptVar"/"$lastVer"
 tar -xf "$tsScriptVar"/"$lastVer" --strip-components=1 -C "$tsdir"
 $($startCMD)
