@@ -16,7 +16,7 @@ if( [[ $? -eq 1 ]] )
 then
 	echo "Update Needed"
 else
-	return 0
+	exit 0
 fi
 
 $($stopCMD)
